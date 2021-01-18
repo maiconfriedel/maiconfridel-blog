@@ -1,6 +1,13 @@
 import Head from "next/head";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
+import {
+  Thumbnail,
+  Container,
+  Header,
+  HeaderHomeImage,
+  Title,
+  BackToHome,
+  Wrapper,
+} from "./styles";
 import Link from "next/link";
 
 const name = "Maicon Gabriel Friedel";
@@ -16,15 +23,11 @@ export default function Layout({
   imageUrl?: string;
 }) {
   return (
-    <>
+    <Wrapper>
       {!home && (
-        <img
-          src={imageUrl ?? "/images/profile.jpg"}
-          className={styles.thumbnail}
-          alt={styles.thumbnail}
-        />
+        <Thumbnail src={imageUrl ?? "/images/profile.jpg"} alt={imageUrl} />
       )}
-      <div className={styles.container}>
+      <Container>
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <meta
@@ -40,27 +43,23 @@ export default function Layout({
           <meta name="og:title" content={siteTitle} />
           <meta name="twitter:card" content="summary_large_image" />
         </Head>
-        <header className={styles.header}>
+        <Header>
           {home && (
             <>
-              <img
-                src="/images/profile.jpg"
-                className={`${styles.headerHomeImage} ${utilStyles.borderCircle}`}
-                alt={name}
-              />
-              <h1 className={utilStyles.heading2Xl}>{name}</h1>
+              <HeaderHomeImage src="/images/profile.jpg" alt={name} />
+              <Title>{name}</Title>
             </>
           )}
-        </header>
+        </Header>
         <main>{children}</main>
         {!home && (
-          <div className={styles.backToHome}>
+          <BackToHome>
             <Link href="/">
               <a>← Back to home</a>
             </Link>
-          </div>
+          </BackToHome>
         )}
-      </div>
-    </>
+      </Container>
+    </Wrapper>
   );
 }

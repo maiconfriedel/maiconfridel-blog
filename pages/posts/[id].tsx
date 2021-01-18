@@ -2,9 +2,11 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
-import utilStyles from "../../styles/utils.module.css";
+import { BackToHome, PostTitle, LightText, Content } from "./styles";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
+import Header from "../../components/Header";
+import { toggleTheme } from "../_app";
 
 export default function Post({
   postData,
@@ -22,16 +24,19 @@ export default function Post({
         <title>{postData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
+        <Header toggleTheme={toggleTheme}>
+          <PostTitle>{postData.title}</PostTitle>
+        </Header>
+
+        <LightText>
           <Date dateString={postData.date} />
-        </div>
-        <div className={utilStyles.backToHome}>
+        </LightText>
+        <BackToHome>
           <Link href="/">
             <a>← Back to home</a>
           </Link>
-        </div>
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        </BackToHome>
+        <Content dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
     </Layout>
   );

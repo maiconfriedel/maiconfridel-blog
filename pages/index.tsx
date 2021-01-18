@@ -1,10 +1,18 @@
 import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
-import utilStyles from "../styles/utils.module.css";
+import {
+  TitleCenter,
+  PostTitle,
+  PostList,
+  PostListItem,
+  LightText,
+} from "./styles";
 import { getSortedPostsData } from "../lib/posts";
 import Link from "next/link";
 import Date from "../components/date";
 import { GetStaticProps } from "next";
+import Header from "../components/Header";
+import { toggleTheme } from "./_app";
 
 export default function Home({
   allPostsData,
@@ -20,28 +28,30 @@ export default function Home({
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      <section className={utilStyles.headingMdCenter}>
-        <p>
-          {
-            "24 anos, casado, graduado em Sistemas de Informação, Analista de Sistemas Jr, gamer nas horas vagas, desenvolvedor frontend e backend, mas com um carinho especial pelo backend ❤"
-          }
-        </p>
-      </section>
-      <section className={`${utilStyles.headingMd}`}>
-        <ul className={utilStyles.list}>
+      <Header toggleTheme={toggleTheme}>
+        <TitleCenter>
+          <p>
+            {
+              "24 anos, casado, graduado em Sistemas de Informação, Analista de Sistemas Jr, gamer nas horas vagas, desenvolvedor frontend e backend, mas com um carinho especial pelo backend ❤"
+            }
+          </p>
+        </TitleCenter>
+      </Header>
+      <PostTitle>
+        <PostList>
           {allPostsData.map(({ id, date, title }) => (
-            <Link href={`/posts/${id}`}>
-              <li className={utilStyles.listItem} key={id}>
+            <Link href={`/posts/${id}`} key={id}>
+              <PostListItem>
                 <a>{title}</a>
                 <br />
-                <small className={utilStyles.lightText}>
+                <LightText>
                   <Date dateString={date} />
-                </small>
-              </li>
+                </LightText>
+              </PostListItem>
             </Link>
           ))}
-        </ul>
-      </section>
+        </PostList>
+      </PostTitle>
     </Layout>
   );
 }

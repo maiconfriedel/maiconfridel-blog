@@ -1,3 +1,6 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
 html,
 body {
   padding: 0;
@@ -6,6 +9,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   line-height: 1.6;
   font-size: 18px;
+
 }
 
 * {
@@ -25,3 +29,9 @@ img {
   max-width: 100%;
   display: block;
 }
+
+html, body, form, main, #__next {
+    height: 100%;
+}
+
+`;
