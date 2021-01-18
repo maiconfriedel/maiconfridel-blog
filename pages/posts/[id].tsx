@@ -2,7 +2,12 @@ import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
 import Date from "../../components/date";
-import { BackToHome, PostTitle, LightText, Content } from "./styles";
+import {
+  BackToHome,
+  PostTitle,
+  LightText,
+  Content,
+} from "../../pages-lib/posts/styles";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import Header from "../../components/Header";
