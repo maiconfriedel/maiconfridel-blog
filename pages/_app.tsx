@@ -19,7 +19,11 @@ export default function App({ Component, pageProps }: AppProps) {
   };
 
   useEffect(() => {
-    setTheme(JSON.parse(localStorage.getItem("theme")));
+    const theme: DefaultTheme = JSON.parse(localStorage.getItem("theme"));
+
+    if (theme) {
+      setTheme(theme);
+    }
   }, []);
 
   return (
