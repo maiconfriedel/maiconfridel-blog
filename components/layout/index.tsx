@@ -5,10 +5,8 @@ import {
   Header,
   HeaderHomeImage,
   Title,
-  BackToHome,
   Wrapper,
 } from "./styles";
-import Link from "next/link";
 
 const name = "Maicon Gabriel Friedel";
 export const siteTitle = "Maicon Gabriel Friedel";
@@ -52,13 +50,6 @@ export default function Layout({
           )}
         </Header>
         <main>{children}</main>
-        {!home && (
-          <BackToHome>
-            <Link href="/">
-              <a>← Voltar para Home</a>
-            </Link>
-          </BackToHome>
-        )}
       </Container>
     </Wrapper>
   );

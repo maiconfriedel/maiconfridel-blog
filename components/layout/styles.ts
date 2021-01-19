@@ -42,16 +42,6 @@ export const Title = styled.h1`
   }
 `;
 
-export const BackToHome = styled.div`
-  margin: 1rem 0 0;
-
-  a {
-    color: ${(props) => props.theme.colors.text};
-  }
-
-  margin-bottom: 50px;
-`;
-
 export const Thumbnail = styled.img`
   width: 100%;
   height: 900px;

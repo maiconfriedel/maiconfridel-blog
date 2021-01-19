@@ -15,9 +15,15 @@ export const LightText = styled.section`
 
 export const BackToHome = styled.div`
   margin: 1rem 0 0;
+  background: ${(props) => props.theme.colors.secundary};
+  width: 175px;
+  padding: 5px;
+  border-radius: 5px;
 
   a {
-    color: ${(props) => props.theme.colors.text};
+    color: ${(props) =>
+      props.theme.title === "dark" ? props.theme.colors.text : "#fff"};
+    text-decoration: none;
   }
 `;
 

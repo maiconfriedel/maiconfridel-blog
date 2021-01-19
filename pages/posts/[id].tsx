@@ -12,9 +12,11 @@ import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
 import Header from "../../components/Header";
 import { toggleTheme } from "../_app";
+import { DiscussionEmbed } from "disqus-react";
 
 export default function Post({
   postData,
+  disqusShortname,
 }: {
   postData: {
     title: string;
@@ -22,6 +24,7 @@ export default function Post({
     contentHtml: string;
     imageUrl: string;
   };
+  disqusShortname: string;
 }) {
   return (
     <Layout imageUrl={postData.imageUrl}>
@@ -43,6 +46,19 @@ export default function Post({
         </BackToHome>
         <Content dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
+      <BackToHome>
+        <Link href="/">
+          <a>← Voltar para Home</a>
+        </Link>
+      </BackToHome>
+      <DiscussionEmbed
+        shortname={disqusShortname}
+        config={{
+          identifier: postData.title,
+          title: postData.title,
+          language: "pt-BR",
+        }}
+      />
     </Layout>
   );
 }
@@ -60,6 +76,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   return {
     props: {
       postData,
+      disqusShortname: process.env.DISQUS_SHORTNAME,
     },
   };
 };
