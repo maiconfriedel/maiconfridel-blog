@@ -38,7 +38,7 @@ export default function Post({
         </LightText>
         <BackToHome>
           <Link href="/">
-            <a>← Back to home</a>
+            <a>← Voltar para Home</a>
           </Link>
         </BackToHome>
         <Content dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />

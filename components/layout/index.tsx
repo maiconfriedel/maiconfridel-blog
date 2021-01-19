@@ -55,7 +55,7 @@ export default function Layout({
         {!home && (
           <BackToHome>
             <Link href="/">
-              <a>← Back to home</a>
+              <a>← Voltar para Home</a>
             </Link>
           </BackToHome>
         )}
