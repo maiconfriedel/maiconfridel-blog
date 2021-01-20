@@ -34,4 +34,8 @@ html, body, form, main, #__next {
     height: 100%;
 }
 
+pre > code {
+  font-size: 15px;
+}
+
 `;

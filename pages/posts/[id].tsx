@@ -1,3 +1,4 @@
+import {useEffect} from "react"
 import Layout from "../../components/layout";
 import { getAllPostIds, getPostData } from "../../lib/posts";
 import Head from "next/head";
@@ -13,6 +14,7 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import { toggleTheme } from "../_app";
 import { DiscussionEmbed } from "disqus-react";
+import { highlightBlock } from "../../highlightjs/highlight.pack.js"
 
 export default function Post({
   postData,
@@ -26,6 +28,14 @@ export default function Post({
   };
   disqusShortname: string;
 }) {
+  useEffect(() => {
+    var pres = document.querySelectorAll("pre>code");
+    for (var i = 0; i < pres.length; i++) {
+        highlightBlock(pres[i]);
+       
+    }
+  }, [])
+
   return (
     <Layout imageUrl={postData.imageUrl}>
       <Head>
@@ -46,7 +56,7 @@ export default function Post({
         </BackToHome>
         <Content dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-      <BackToHome>
+      <BackToHome style={{ marginBottom: 20 }}>
         <Link href="/">
           <a>← Voltar para Home</a>
         </Link>

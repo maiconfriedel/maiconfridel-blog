@@ -6,6 +6,7 @@ import {
   HeaderHomeImage,
   Title,
   Wrapper,
+  Socials,
 } from "./styles";
 
 const name = "Maicon Gabriel Friedel";
@@ -50,6 +51,23 @@ export default function Layout({
           )}
         </Header>
         <main>{children}</main>
+        <Socials>
+          <a href="https://github.com/maiconfriedel" target="_blank">
+            <img
+              src="https://img.shields.io/badge/maiconfriedel-333?style=for-the-badge&logo=github&logoColor=white&link=https://github.com/maiconfriedel"
+              alt="githubbadge"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/maicon-gabriel-friedel-882059173"
+            target="_blank"
+          >
+            <img
+              src="https://img.shields.io/badge/Maicon%20Gabriel%20Friedel-333?style=for-the-badge&logo=linkedin&logoColor=white&link=https://www.linkedin.com/in/maicon-gabriel-friedel-882059173"
+              alt="linkedinbadge"
+            />
+          </a>
+        </Socials>
       </Container>
     </Wrapper>
   );

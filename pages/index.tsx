@@ -2,7 +2,7 @@ import Head from "next/head";
 import Layout, { siteTitle } from "../components/layout";
 import {
   TitleCenter,
-  PostTitle,
+  PostsContainer,
   PostList,
   PostListItem,
   LightText,
@@ -37,7 +37,8 @@ export default function Home({
           </p>
         </TitleCenter>
       </Header>
-      <PostTitle>
+
+      <PostsContainer>
         <PostList>
           {allPostsData.map(({ id, date, title }) => (
             <Link href={`/posts/${id}`} key={id}>
@@ -51,7 +52,7 @@ export default function Home({
             </Link>
           ))}
         </PostList>
-      </PostTitle>
+      </PostsContainer>
     </Layout>
   );
 }

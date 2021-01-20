@@ -3,11 +3,17 @@ import styled from "styled-components";
 export const TitleCenter = styled.section`
   font-size: 1.1rem;
   line-height: 1.4;
-  text-align: center;
   color: ${(props) => props.theme.colors.text};
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 `;
 
-export const PostTitle = styled.section`
+export const PostsContainer = styled.section`
   font-size: 1.1rem;
   line-height: 1.4;
 `;

@@ -12,7 +12,7 @@ export const Wrapper = styled.div`
 export const Container = styled.div`
   max-width: 1200px;
   padding: 0 1rem;
-  margin: 0.5rem auto 6rem;
+  margin: 0.5rem auto 25px;
 `;
 
 export const Header = styled.header`
@@ -64,5 +64,19 @@ export const Thumbnail = styled.img`
   @media only screen and (max-width: 500px) {
     width: 100%;
     height: 200px;
+  }
+`;
+
+export const Socials = styled.div`
+  display: flex;
+  flex: 1;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 100px;
+
+  a + a {
+    margin-left: 5px;
   }
 `;
