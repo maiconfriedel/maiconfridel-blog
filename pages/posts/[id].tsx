@@ -14,7 +14,8 @@ import Link from "next/link";
 import Header from "../../components/Header";
 import { toggleTheme } from "../_app";
 import { DiscussionEmbed } from "disqus-react";
-import { highlightBlock } from "../../highlightjs/highlight.pack.js"
+import hljs from 'highlight.js';
+
 
 export default function Post({
   postData,
@@ -31,8 +32,7 @@ export default function Post({
   useEffect(() => {
     var pres = document.querySelectorAll("pre>code");
     for (var i = 0; i < pres.length; i++) {
-        highlightBlock(pres[i]);
-       
+      hljs.highlightBlock(pres[i] as HTMLElement);
     }
   }, [])
 

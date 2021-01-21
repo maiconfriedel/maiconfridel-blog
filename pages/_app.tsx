@@ -5,8 +5,7 @@ import { DefaultTheme, ThemeProvider } from "styled-components";
 import light from "../styles/themes/light";
 import dark from "../styles/themes/dark";
 
-import "../highlightjs/highlight.pack.js"
-import "../highlightjs/styles/atom-one-dark.css"
+import 'highlight.js/styles/atom-one-dark.css';
 
 let toggleTheme: Function;
 
